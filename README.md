@@ -1,5 +1,7 @@
 # EsZalud – Reference Application
 
+![EsZalud](./reference-app/EsZalud_logo.png)
+
 ## 1. Descripción
 
 EsZalud es una aplicación de escritorio desarrollada en Java para la gestión de consultas médicas. Este proyecto contiene una implementación funcional que se proporciona como referencia para el desarrollo de la **[Especificación Formal de Pruebas Unitarias (EFP)](EFP_Pruebas_Unitarias_EsZalud.md)**.
