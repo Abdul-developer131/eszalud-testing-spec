@@ -18,4 +18,11 @@ public class PacienteTest {
         assertEquals("987654321", paciente.getTelefono());
         assertEquals("ana@mail.com", paciente.getCorreo());
     }
+
+    @Test
+    void testNullDocumentValidation() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Paciente(null, "Juan", "Perez", "987654321", "juan@test.com");
+        });
+    }
 }
