@@ -9,3 +9,9 @@ Finalmente, para la **CitaMedica**, garantice que toda cita este vinculada si o 
 
 ## Enfoque de Desarrollo
 Todo el proyecto fue construido siguiendo estrictamente el ciclo RED-GREEN-REFACTOR. Para proteger los datos y evitar alteraciones inesperadas, aplique inmutabilidad (usando la palabra reservada final) en las propiedades clave, logrando que los objetos de dominio sean mucho mas robustos y seguros.
+
+## Decisiones de Negocio
+En cumplimiento con las reglas del dominio (Seccion 8), tome las siguientes decisiones para la validación:
+- **Correo Electronico**: Decidi validarlo como obligatorio para el Paciente, exigiendo que contenga el carácter `@` para asegurar un formato basico valido.
+- **Campos Vacios**: Determine que los atributos obligatorios (como el Documento) no solo rechacen valores nulos, sino tambien cadenas vacías (`""`).
+- **Estado Inicial de Cita**: Defini que, al inicializar una CitaMedica, se le asigne automaticamente el estado predeterminado `PROGRAMADA`.

@@ -20,21 +20,24 @@ public class PacienteTest {
     }
 
     @Test
-    void testNullDocumentValidation() {
+    @DisplayName("Rechazar la creación de un paciente sin documento")
+    void shouldRejectPatientWithoutDocument() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Paciente(null, "Juan", "Perez", "987654321", "juan@test.com");
         });
     }
 
     @Test
-    void testNullFirstNameValidation() {
+    @DisplayName("Rechazar la creación de un paciente sin nombres")
+    void shouldRejectPatientWithoutFirstName() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Paciente("73123456", null, "Perez", "987654321", "juan@test.com");
         });
     }
 
     @Test
-    void testNullLastNameValidation() {
+    @DisplayName("Rechazar la creación de un paciente sin apellidos")
+    void shouldRejectPatientWithoutLastName() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Paciente("73123456", "Juan", null, "987654321", "juan@test.com");
         });
@@ -42,14 +45,16 @@ public class PacienteTest {
 
     //pruebas
     @Test
-    void testEmptyDocumentValidation() {
+    @DisplayName("Rechazar la creación de un paciente con documento vacío")
+    void shouldRejectPatientWithEmptyDocument() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Paciente("", "Juan", "Perez", "987654321", "juan@test.com");
         });
     }
 
     @Test
-    void testInvalidEmailFormat() {
+    @DisplayName("Rechazar la creación de un paciente con formato de correo inválido")
+    void shouldRejectPatientWithInvalidEmailFormat() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Paciente("73123456", "Juan", "Perez", "987654321", "juansinarroba.com");
         });

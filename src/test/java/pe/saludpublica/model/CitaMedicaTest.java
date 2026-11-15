@@ -1,12 +1,15 @@
 package pe.saludpublica.model;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CitaMedicaTest {
+
     @Test
-    void testValidAppointmentCreation() {
+    @DisplayName("Crear cita médica con datos válidos")
+    void shouldCreateAppointmentWithValidData() {
         Paciente paciente = new Paciente("73123456", "Juan", "Perez", "987654321", "juan@test.com");
         Doctor doctor = new Doctor("12345678", "Ana", "Lopez", "CMP12345", "Cardiología");
         LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
@@ -19,7 +22,8 @@ class CitaMedicaTest {
     }
 
     @Test
-    void testRequiredPatientValidation() {
+    @DisplayName("Rechazar la creación de una cita sin identificador de paciente")
+    void shouldRejectAppointmentWithoutPatient() {
         Doctor doctor = new Doctor("12345678", "Ana", "Lopez", "CMP12345", "Cardiología");
         LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
 
@@ -29,7 +33,8 @@ class CitaMedicaTest {
     }
 
     @Test
-    void testRequiredDoctorValidation() {
+    @DisplayName("Rechazar la creación de una cita sin identificador de doctor")
+    void shouldRejectAppointmentWithoutDoctor() {
         Paciente paciente = new Paciente("73123456", "Juan", "Perez", "987654321", "juan@test.com");
         LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
 
@@ -39,7 +44,8 @@ class CitaMedicaTest {
     }
 
     @Test
-    void testRequiredAppointmentDateValidation() {
+    @DisplayName("Rechazar la creación de una cita sin fecha y hora")
+    void shouldRejectAppointmentWithoutDate() {
         Paciente paciente = new Paciente("73123456", "Juan", "Perez", "987654321", "juan@test.com");
         Doctor doctor = new Doctor("12345678", "Ana", "Lopez", "CMP12345", "Cardiología");
 
@@ -49,7 +55,8 @@ class CitaMedicaTest {
     }
 
     @Test
-    void testDefaultAppointmentStatus() {
+    @DisplayName("Asignar estado PROGRAMADA por defecto al crear la cita")
+    void shouldSetProgrammedStatusByDefault() {
         Paciente paciente = new Paciente("73123456", "Juan", "Perez", "987654321", "juan@test.com");
         Doctor doctor = new Doctor("12345678", "Ana", "Lopez", "CMP12345", "Cardiología");
         LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
