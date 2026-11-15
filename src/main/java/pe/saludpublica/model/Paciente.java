@@ -11,6 +11,7 @@ public class Paciente {
         validarDocumento(documento);
         validarNombres(nombres);
         validarApellidos(apellidos);
+        validarCorreo(correo);
         this.documento = documento;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -33,6 +34,12 @@ public class Paciente {
     private void validarApellidos(String apellidos) {
         if (apellidos == null) {
             throw new IllegalArgumentException("Los apellidos son obligatorios");
+        }
+    }
+
+    private void validarCorreo(String correo) {
+        if (correo != null && !correo.contains("@")) {
+            throw new IllegalArgumentException("El correo debe tener un formato válido");
         }
     }
 

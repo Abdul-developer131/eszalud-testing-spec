@@ -47,4 +47,11 @@ public class PacienteTest {
             new Paciente("", "Juan", "Perez", "987654321", "juan@test.com");
         });
     }
+
+    @Test
+    void testInvalidEmailFormat() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Paciente("73123456", "Juan", "Perez", "987654321", "juansinarroba.com");
+        });
+    }
 }
