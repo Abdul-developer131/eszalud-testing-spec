@@ -27,4 +27,14 @@ class CitaMedicaTest {
             new CitaMedica(null, doctor, fechaHora);
         });
     }
+
+    @Test
+    void testRequiredDoctorValidation() {
+        Paciente paciente = new Paciente("73123456", "Juan", "Perez", "987654321", "juan@test.com");
+        LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new CitaMedica(paciente, null, fechaHora);
+        });
+    }
 }
