@@ -14,4 +14,11 @@ class DoctorTest {
         assertEquals("Lopez", doctor.getApellidos());
         assertEquals("Cardiologia", doctor.getEspecialidad());
     }
+
+    @Test
+    void testRequiredDocumentValidation() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Doctor(null, "Ana", "Lopez", "CMP12345", "Cardiologia");
+        });
+    }
 }
