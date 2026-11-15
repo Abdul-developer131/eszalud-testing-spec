@@ -17,4 +17,14 @@ class CitaMedicaTest {
         assertEquals(doctor, cita.getDoctor());
         assertEquals(fechaHora, cita.getFechaHora());
     }
+
+    @Test
+    void testRequiredPatientValidation() {
+        Doctor doctor = new Doctor("12345678", "Ana", "Lopez", "CMP12345", "Cardiología");
+        LocalDateTime fechaHora = LocalDateTime.of(2026, 12, 1, 10, 30);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new CitaMedica(null, doctor, fechaHora);
+        });
+    }
 }
