@@ -41,4 +41,9 @@ public class CitaMedica {
     public Doctor getDoctor() { return doctor; }
     public LocalDateTime getFechaHora() { return fechaHora; }
     public EstadoCita getEstado() { return estado; }
+
+    @Override
+    public String toString() {
+        return "CitaMedica: Paciente " + paciente.getDocumento() + " con Doctor " + doctor.getDocumento() + " el " + fechaHora + " (" + estado + ")";
+    }
 }
