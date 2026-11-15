@@ -6,6 +6,7 @@ public class CitaMedica {
     private Paciente paciente;
     private Doctor doctor;
     private LocalDateTime fechaHora;
+    private EstadoCita estado;
 
     public CitaMedica(Paciente paciente, Doctor doctor, LocalDateTime fechaHora) {
         validarPaciente(paciente);
@@ -14,6 +15,7 @@ public class CitaMedica {
         this.paciente = paciente;
         this.doctor = doctor;
         this.fechaHora = fechaHora;
+        this.estado = EstadoCita.PROGRAMADA;
     }
 
     private void validarPaciente(Paciente paciente) {
@@ -37,4 +39,5 @@ public class CitaMedica {
     public Paciente getPaciente() { return paciente; }
     public Doctor getDoctor() { return doctor; }
     public LocalDateTime getFechaHora() { return fechaHora; }
+    public EstadoCita getEstado() { return estado; }
 }
