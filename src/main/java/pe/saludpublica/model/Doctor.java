@@ -9,6 +9,7 @@ public class Doctor {
 
     public Doctor(String documento, String nombres, String apellidos, String colegiatura, String especialidad) {
         validarDocumento(documento);
+        validarColegiatura(colegiatura);
         this.documento = documento;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -19,6 +20,12 @@ public class Doctor {
     private void validarDocumento(String documento) {
         if (documento == null) {
             throw new IllegalArgumentException("El documento es obligatorio");
+        }
+    }
+
+    private void validarColegiatura(String colegiatura) {
+        if (colegiatura == null) {
+            throw new IllegalArgumentException("La colegiatura es obligatoria");
         }
     }
 
